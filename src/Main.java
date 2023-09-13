@@ -13,8 +13,33 @@ public class Main {
         System.out.println(fibo);
         return fibo;
     }
+
+    public static Integer wyszukiwanieBinarne(ArrayList<Integer> listaDoWyszukiwaniaBina,
+                                              int szukana){
+        int liczba=0;
+        int poczatek =0;
+        int koniec = listaDoWyszukiwaniaBina.size()-1;
+        while(koniec - poczatek>1) {
+            int srodek = (poczatek + koniec) / 2;
+            if (listaDoWyszukiwaniaBina.get(srodek) > szukana) {
+                koniec = srodek;
+            } else {
+                poczatek = srodek;
+            }
+        }
+        int roznica1 = szukana-listaDoWyszukiwaniaBina.get(poczatek);
+        int roznica2 = listaDoWyszukiwaniaBina.get(koniec) - szukana;
+        if(roznica1>roznica2){
+            liczba = listaDoWyszukiwaniaBina.get(koniec);
+        }
+        else{
+            liczba = listaDoWyszukiwaniaBina.get(koniec);
+        }
+        return liczba;
+    }
     public static void main(String[] args) {
         System.out.println("Hello world!");
-        fibonacci();
+        ArrayList<Integer> fibki = fibonacci();
+        System.out.println(wyszukiwanieBinarne(fibki,54));
     }
 }
