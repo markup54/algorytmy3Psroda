@@ -21,7 +21,7 @@ public class Main {
         int koniec = listaDoWyszukiwaniaBina.size()-1;
         while(koniec - poczatek>1) {
             int srodek = (poczatek + koniec) / 2;
-            if (listaDoWyszukiwaniaBina.get(srodek) > szukana) {
+            if (listaDoWyszukiwaniaBina.get(srodek) >= szukana) {
                 koniec = srodek;
             } else {
                 poczatek = srodek;
@@ -37,9 +37,24 @@ public class Main {
         }
         return liczba;
     }
+
+    public static boolean czyPalindrom(String slowo){
+        String slowoOdKonca ="";
+        for (int i = 0; i <slowo.length() ; i++) {
+
+            slowoOdKonca = slowo.charAt(i)+slowoOdKonca;
+
+        }
+        if(slowo.equals(slowoOdKonca))
+            return true;
+        else {
+            return false;
+        }
+    }
     public static void main(String[] args) {
         System.out.println("Hello world!");
         ArrayList<Integer> fibki = fibonacci();
-        System.out.println(wyszukiwanieBinarne(fibki,54));
+        System.out.println(wyszukiwanieBinarne(fibki,55));
+        System.out.println(czyPalindrom("kajak"));
     }
 }
